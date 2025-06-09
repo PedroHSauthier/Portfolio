@@ -1,68 +1,15 @@
-import React, { useState } from 'react';
-import { Plus, Edit3, Save, X, Github, Mail, Linkedin, BarChart3, Database, Code } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Github, Mail, Linkedin, BarChart3, Database, Code } from 'lucide-react';
 
 const Portfolio = () => {
-  const [projects, setProjects] = useState([
-    {
-      id: 1,
-      title: "Análise de Vendas - Dashboard Python",
-      description: "Dashboard interativo para análise de vendas usando Python, Pandas e Plotly. Inclui filtros dinâmicos e exportação para Excel.",
-      image: "/api/placeholder/400/250",
-      tags: ["Python", "Pandas", "Plotly", "Excel"],
-      link: "#"
-    }
-  ]);
-  
-  const [isEditing, setIsEditing] = useState(false);
-  const [editingProject, setEditingProject] = useState(null);
-  const [newProject, setNewProject] = useState({
-    title: '',
-    description: '',
-    image: '',
-    tags: '',
-    link: ''
-  });
+  const [projects, setProjects] = useState([]);
 
-  const handleImageUpload = (e, isNew = false) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        if (isNew) {
-          setNewProject(prev => ({ ...prev, image: e.target.result }));
-        } else {
-          setEditingProject(prev => ({ ...prev, image: e.target.result }));
-        }
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const addProject = () => {
-    if (newProject.title && newProject.description) {
-      const project = {
-        id: Date.now(),
-        ...newProject,
-        tags: newProject.tags.split(',').map(tag => tag.trim())
-      };
-      setProjects([...projects, project]);
-      setNewProject({ title: '', description: '', image: '', tags: '', link: '' });
-      setIsEditing(false);
-    }
-  };
-
-  const updateProject = () => {
-    setProjects(projects.map(p => 
-      p.id === editingProject.id 
-        ? { ...editingProject, tags: Array.isArray(editingProject.tags) ? editingProject.tags : editingProject.tags.split(',').map(tag => tag.trim()) }
-        : p
-    ));
-    setEditingProject(null);
-  };
-
-  const deleteProject = (id) => {
-    setProjects(projects.filter(p => p.id !== id));
-  };
+  useEffect(() => {
+    fetch('/projects.json')
+      .then((res) => res.json())
+      .then((data) => setProjects(data))
+      .catch(() => setProjects([]));
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white">
@@ -124,134 +71,9 @@ const Portfolio = () => {
       </section>
 
       {/* Projects Section */}
-      <section className="px-6 py-16 bg-black/30">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-center justify-between mb-12">
-            <h2 className="text-4xl font-bold">Projetos</h2>
-            <button
-              onClick={() => setIsEditing(true)}
-              className="flex items-center gap-2 px-4 py-2 bg-cyan-500 hover:bg-cyan-600 rounded-lg transition-colors"
-            >
-              <Plus size={20} />
-              Adicionar Projeto
-            </button>
-          </div>
-
-          {/* Add/Edit Project Modal */}
-          {isEditing && (
-            <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
-              <div className="bg-gray-900 p-6 rounded-xl max-w-2xl w-full border border-cyan-500/20">
-                <h3 className="text-2xl font-bold mb-4">Adicionar Projeto</h3>
-                <div className="space-y-4">
-                  <input
-                    type="text"
-                    placeholder="Título do projeto"
-                    value={newProject.title}
-                    onChange={(e) => setNewProject({...newProject, title: e.target.value})}
-                    className="w-full p-3 bg-gray-800 border border-gray-600 rounded-lg text-white"
-                  />
-                  <textarea
-                    placeholder="Descrição do projeto"
-                    value={newProject.description}
-                    onChange={(e) => setNewProject({...newProject, description: e.target.value})}
-                    className="w-full p-3 bg-gray-800 border border-gray-600 rounded-lg text-white h-24"
-                  />
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={(e) => handleImageUpload(e, true)}
-                    className="w-full p-3 bg-gray-800 border border-gray-600 rounded-lg text-white"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Tags (separadas por vírgula)"
-                    value={newProject.tags}
-                    onChange={(e) => setNewProject({...newProject, tags: e.target.value})}
-                    className="w-full p-3 bg-gray-800 border border-gray-600 rounded-lg text-white"
-                  />
-                  <input
-                    type="url"
-                    placeholder="Link do projeto (opcional)"
-                    value={newProject.link}
-                    onChange={(e) => setNewProject({...newProject, link: e.target.value})}
-                    className="w-full p-3 bg-gray-800 border border-gray-600 rounded-lg text-white"
-                  />
-                </div>
-                <div className="flex gap-4 mt-6">
-                  <button
-                    onClick={addProject}
-                    className="flex items-center gap-2 px-4 py-2 bg-green-500 hover:bg-green-600 rounded-lg transition-colors"
-                  >
-                    <Save size={20} />
-                    Salvar
-                  </button>
-                  <button
-                    onClick={() => setIsEditing(false)}
-                    className="flex items-center gap-2 px-4 py-2 bg-gray-600 hover:bg-gray-700 rounded-lg transition-colors"
-                  >
-                    <X size={20} />
-                    Cancelar
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Edit Project Modal */}
-          {editingProject && (
-            <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
-              <div className="bg-gray-900 p-6 rounded-xl max-w-2xl w-full border border-cyan-500/20">
-                <h3 className="text-2xl font-bold mb-4">Editar Projeto</h3>
-                <div className="space-y-4">
-                  <input
-                    type="text"
-                    value={editingProject.title}
-                    onChange={(e) => setEditingProject({...editingProject, title: e.target.value})}
-                    className="w-full p-3 bg-gray-800 border border-gray-600 rounded-lg text-white"
-                  />
-                  <textarea
-                    value={editingProject.description}
-                    onChange={(e) => setEditingProject({...editingProject, description: e.target.value})}
-                    className="w-full p-3 bg-gray-800 border border-gray-600 rounded-lg text-white h-24"
-                  />
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={(e) => handleImageUpload(e, false)}
-                    className="w-full p-3 bg-gray-800 border border-gray-600 rounded-lg text-white"
-                  />
-                  <input
-                    type="text"
-                    value={Array.isArray(editingProject.tags) ? editingProject.tags.join(', ') : editingProject.tags}
-                    onChange={(e) => setEditingProject({...editingProject, tags: e.target.value})}
-                    className="w-full p-3 bg-gray-800 border border-gray-600 rounded-lg text-white"
-                  />
-                  <input
-                    type="url"
-                    value={editingProject.link}
-                    onChange={(e) => setEditingProject({...editingProject, link: e.target.value})}
-                    className="w-full p-3 bg-gray-800 border border-gray-600 rounded-lg text-white"
-                  />
-                </div>
-                <div className="flex gap-4 mt-6">
-                  <button
-                    onClick={updateProject}
-                    className="flex items-center gap-2 px-4 py-2 bg-green-500 hover:bg-green-600 rounded-lg transition-colors"
-                  >
-                    <Save size={20} />
-                    Salvar
-                  </button>
-                  <button
-                    onClick={() => setEditingProject(null)}
-                    className="flex items-center gap-2 px-4 py-2 bg-gray-600 hover:bg-gray-700 rounded-lg transition-colors"
-                  >
-                    <X size={20} />
-                    Cancelar
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
+        <section className="px-6 py-16 bg-black/30">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold mb-12">Projetos</h2>
 
           {/* Projects Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -263,20 +85,6 @@ const Portfolio = () => {
                     alt={project.title}
                     className="w-full h-48 object-cover"
                   />
-                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity flex gap-2">
-                    <button
-                      onClick={() => setEditingProject(project)}
-                      className="p-2 bg-blue-500 rounded-lg hover:bg-blue-600"
-                    >
-                      <Edit3 size={16} />
-                    </button>
-                    <button
-                      onClick={() => deleteProject(project.id)}
-                      className="p-2 bg-red-500 rounded-lg hover:bg-red-600"
-                    >
-                      <X size={16} />
-                    </button>
-                  </div>
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
