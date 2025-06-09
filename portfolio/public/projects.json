@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1,
+    "title": "Análise de Vendas - Dashboard Python",
+    "description": "Dashboard interativo para análise de vendas usando Python, Pandas e Plotly. Inclui filtros dinâmicos e exportação para Excel.",
+    "image": "/api/placeholder/400/250",
+    "tags": ["Python", "Pandas", "Plotly", "Excel"],
+    "link": "#"
+  }
+]
