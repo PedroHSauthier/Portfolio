@@ -1,15 +1,36 @@
 import React, { useState, useEffect } from 'react';
-import { Github, Mail, Linkedin, BarChart3, Database, Code } from 'lucide-react';
+import {
+  Github,
+  Mail,
+  Linkedin,
+  BarChart3,
+  Database,
+  Code,
+  ExternalLink,
+} from 'lucide-react';
 
 const Portfolio = () => {
   const [projects, setProjects] = useState([]);
+  const [selectedTag, setSelectedTag] = useState('Todos');
+  const [avatarUrl, setAvatarUrl] = useState('');
 
   useEffect(() => {
     fetch('/projects.json')
       .then((res) => res.json())
       .then((data) => setProjects(data))
       .catch(() => setProjects([]));
+
+    fetch('https://api.github.com/users/PedroHSauthier')
+      .then((res) => res.json())
+      .then((data) => setAvatarUrl(data.avatar_url))
+      .catch(() => setAvatarUrl(''));
   }, []);
+
+  const allTags = ['Todos', ...new Set(projects.flatMap((p) => p.tags))];
+  const filteredProjects =
+    selectedTag === 'Todos'
+      ? projects
+      : projects.filter((p) => p.tags.includes(selectedTag));
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white">
@@ -17,11 +38,20 @@ const Portfolio = () => {
       <header className="px-6 py-8 border-b border-cyan-500/20">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-green-400 bg-clip-text text-transparent">
-                Pedro Sauthier
-              </h1>
-              <p className="text-xl text-gray-300 mt-2">Analista de Dados & Desenvolvedor</p>
+            <div className="flex items-center">
+              {avatarUrl && (
+                <img
+                  src={avatarUrl}
+                  alt="GitHub avatar"
+                  className="w-16 h-16 rounded-full mr-4 border-2 border-cyan-500 shadow-md"
+                />
+              )}
+              <div>
+                <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-green-400 bg-clip-text text-transparent">
+                  Pedro Sauthier
+                </h1>
+                <p className="text-xl text-gray-300 mt-2">Analista de Dados & Desenvolvedor</p>
+              </div>
             </div>
             <div className="flex gap-4">
               <a href="mailto:phsathier123@gmail.com" className="p-3 bg-cyan-500/20 hover:bg-cyan-500/30 rounded-lg transition-colors">
@@ -73,12 +103,26 @@ const Portfolio = () => {
       {/* Projects Section */}
         <section className="px-6 py-16 bg-black/30">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold mb-12">Projetos</h2>
+            <h2 className="text-4xl font-bold mb-6">Projetos</h2>
+            <div className="flex flex-wrap gap-2 mb-12">
+              {allTags.map((tag) => (
+                <button
+                  key={tag}
+                  onClick={() => setSelectedTag(tag)}
+                  className={`px-3 py-1 rounded-full border transition-colors ${selectedTag === tag ? 'bg-cyan-500 text-white border-cyan-500' : 'text-cyan-400 border-cyan-400 hover:bg-cyan-500/20'}`}
+                >
+                  {tag}
+                </button>
+              ))}
+            </div>
 
           {/* Projects Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map(project => (
-              <div key={project.id} className="group bg-gray-900/50 rounded-xl overflow-hidden border border-gray-700 hover:border-cyan-500/50 transition-all">
+            {filteredProjects.map((project) => (
+              <div
+                key={project.id}
+                className="group bg-gray-900/50 rounded-xl overflow-hidden border border-gray-700 hover:border-cyan-500/50 shadow-md hover:shadow-cyan-500/30 transition-all duration-300 transform hover:-translate-y-1"
+              >
                 <div className="relative">
                   <img 
                     src={project.image} 
@@ -96,14 +140,24 @@ const Portfolio = () => {
                       </span>
                     ))}
                   </div>
-                  {project.link && (
-                    <a 
-                      href={project.link}
-                      className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
-                    >
-                      Ver projeto <Github size={16} />
-                    </a>
-                  )}
+                  <div className="flex items-center justify-between">
+                    {project.repo && (
+                      <a
+                        href={project.repo}
+                        className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
+                      >
+                        Código <Github size={16} />
+                      </a>
+                    )}
+                    {project.demo && (
+                      <a
+                        href={project.demo}
+                        className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
+                      >
+                        Demo <ExternalLink size={16} />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}

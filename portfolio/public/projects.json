@@ -5,6 +5,16 @@
     "description": "Dashboard interativo para análise de vendas usando Python, Pandas e Plotly. Inclui filtros dinâmicos e exportação para Excel.",
     "image": "/api/placeholder/400/250",
     "tags": ["Python", "Pandas", "Plotly", "Excel"],
-    "link": "#"
+    "repo": "#",
+    "demo": "#"
+  },
+  {
+    "id": 2,
+    "title": "Website Institucional",
+    "description": "Site responsivo desenvolvido em React e Tailwind para apresentar serviços de consultoria.",
+    "image": "/api/placeholder/400/250?2",
+    "tags": ["React", "Tailwind"],
+    "repo": "#",
+    "demo": "#"
   }
 ]
