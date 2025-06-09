@@ -122,7 +122,7 @@ const Portfolio = () => {
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
-                className="group flex flex-col h-80 md:h-96 bg-gray-900/50 rounded-xl overflow-hidden border border-gray-700 hover:border-cyan-500/50 shadow-md hover:shadow-cyan-500/30 transition-all duration-300 transform hover:-translate-y-1"
+                className="group flex flex-col min-h-[20rem] md:min-h-[24rem] bg-gray-900/50 rounded-xl overflow-hidden border border-gray-700 hover:border-cyan-500/50 shadow-md hover:shadow-cyan-500/30 transition-all duration-300 transform hover:-translate-y-1"
               >
                 <div className="relative">
                   <img
