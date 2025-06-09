@@ -81,17 +81,17 @@ const Portfolio = () => {
           </p>
           
           <div className="grid md:grid-cols-3 gap-8 mt-16">
-            <div className="p-6 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-xl border border-cyan-500/20">
+            <div className="p-6 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-xl border border-cyan-500/20 transition-transform hover:-translate-y-1 hover:shadow-lg hover:from-cyan-500/20 hover:to-blue-500/20">
               <BarChart3 className="w-12 h-12 text-cyan-400 mb-4 mx-auto" />
               <h3 className="text-xl font-semibold mb-2">Análise de Dados</h3>
               <p className="text-gray-300">Python, Pandas, visualizações e dashboards interativos</p>
             </div>
-            <div className="p-6 bg-gradient-to-br from-green-500/10 to-cyan-500/10 rounded-xl border border-green-500/20">
+            <div className="p-6 bg-gradient-to-br from-green-500/10 to-cyan-500/10 rounded-xl border border-green-500/20 transition-transform hover:-translate-y-1 hover:shadow-lg hover:from-green-500/20 hover:to-cyan-500/20">
               <Database className="w-12 h-12 text-green-400 mb-4 mx-auto" />
               <h3 className="text-xl font-semibold mb-2">Planilhas Avançadas</h3>
               <p className="text-gray-300">Google Sheets, automações e relatórios dinâmicos</p>
             </div>
-            <div className="p-6 bg-gradient-to-br from-blue-500/10 to-green-500/10 rounded-xl border border-blue-500/20">
+            <div className="p-6 bg-gradient-to-br from-blue-500/10 to-green-500/10 rounded-xl border border-blue-500/20 transition-transform hover:-translate-y-1 hover:shadow-lg hover:from-blue-500/20 hover:to-green-500/20">
               <Code className="w-12 h-12 text-blue-400 mb-4 mx-auto" />
               <h3 className="text-xl font-semibold mb-2">Desenvolvimento</h3>
               <p className="text-gray-300">JavaScript, React, Node.js e soluções web</p>
@@ -102,9 +102,10 @@ const Portfolio = () => {
 
       {/* Projects Section */}
         <section className="px-6 py-16 bg-black/30">
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-6xl mx-auto text-center">
+            <h3 className="text-blue-600 text-xl font-semibold">Área tech</h3>
             <h2 className="text-4xl font-bold mb-6">Projetos</h2>
-            <div className="flex flex-wrap gap-2 mb-12">
+            <div className="flex flex-wrap justify-center gap-2 mb-12">
               {allTags.map((tag) => (
                 <button
                   key={tag}
@@ -121,18 +122,18 @@ const Portfolio = () => {
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
-                className="group bg-gray-900/50 rounded-xl overflow-hidden border border-gray-700 hover:border-cyan-500/50 shadow-md hover:shadow-cyan-500/30 transition-all duration-300 transform hover:-translate-y-1"
+                className="group flex flex-col h-80 md:h-96 bg-gray-900/50 rounded-xl overflow-hidden border border-gray-700 hover:border-cyan-500/50 shadow-md hover:shadow-cyan-500/30 transition-all duration-300 transform hover:-translate-y-1"
               >
                 <div className="relative">
-                  <img 
-                    src={project.image} 
+                  <img
+                    src={project.image}
                     alt={project.title}
                     className="w-full h-48 object-cover"
                   />
                 </div>
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-1">
                   <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                  <p className="text-gray-300 mb-4">{project.description}</p>
+                  <p className="text-gray-300 mb-4 flex-grow">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map(tag => (
                       <span key={tag} className="px-2 py-1 bg-cyan-500/20 text-cyan-400 rounded text-sm">
@@ -140,7 +141,7 @@ const Portfolio = () => {
                       </span>
                     ))}
                   </div>
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between mt-auto">
                     {project.repo && (
                       <a
                         href={project.repo}
