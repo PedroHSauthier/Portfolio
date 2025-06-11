@@ -137,9 +137,16 @@ const Portfolio = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-48 object-cover cursor-pointer"
-                    onClick={() => openModal(project)}
+                    className="w-full h-48 object-cover transition-all duration-300 group-hover:brightness-50"
                   />
+                  <button
+                    onClick={() => openModal(project)}
+                    className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black/0 group-hover:bg-black/60 transition-all duration-300 text-white font-semibold"
+                  >
+                    <span className="relative after:absolute after:left-0 after:right-0 after:-bottom-1 after:h-0.5 after:bg-white after:scale-x-0 after:origin-left after:transition-transform after:duration-300 group-hover:after:scale-x-100">
+                      Ver mais
+                    </span>
+                  </button>
                 </div>
                 <div className="p-6 flex flex-col flex-1">
                   <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
