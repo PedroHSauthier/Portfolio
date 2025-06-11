@@ -7,6 +7,7 @@ import {
   Database,
   Code,
   ExternalLink,
+  Lock,
 } from 'lucide-react';
 
 const Portfolio = () => {
@@ -141,24 +142,37 @@ const Portfolio = () => {
                       </span>
                     ))}
                   </div>
-                  <div className="flex items-center justify-between mt-auto">
-                    {project.repo && (
-                      <a
-                        href={project.repo}
-                        className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
+                  {(() => {
+                    const isRepoPrivate = project.repo === '#';
+                    const hasDemo = project.demo && project.demo !== '#';
+                    return (
+                      <div
+                        className={`flex items-center mt-auto ${hasDemo ? 'justify-between' : 'justify-center'}`}
                       >
-                        Código <Github size={16} />
-                      </a>
-                    )}
-                    {project.demo && (
-                      <a
-                        href={project.demo}
-                        className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
-                      >
-                        Demo <ExternalLink size={16} />
-                      </a>
-                    )}
-                  </div>
+                        {project.repo && (
+                          <a
+                            href={project.repo}
+                            className={`inline-flex items-center gap-2 transition-colors ${
+                              isRepoPrivate
+                                ? 'text-gray-400 pointer-events-none'
+                                : 'text-cyan-400 hover:text-cyan-300'
+                            }`}
+                            onClick={(e) => isRepoPrivate && e.preventDefault()}
+                          >
+                            Código <Github size={16} />{isRepoPrivate && <Lock size={16} />}
+                          </a>
+                        )}
+                        {hasDemo && (
+                          <a
+                            href={project.demo}
+                            className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors"
+                          >
+                            Demo <ExternalLink size={16} />
+                          </a>
+                        )}
+                      </div>
+                    );
+                  })()}
                 </div>
               </div>
             ))}
