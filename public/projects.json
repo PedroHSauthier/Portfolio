@@ -4,6 +4,11 @@
     "title": "Planilha de Controle de Despesas",
     "description": "Planilha criada com Google Sheets para controlar despesas, altamente personalizável, com diversas funções personalizadas criadas puramente para a Planilha.",
     "image": "https://i.imgur.com/pJjzJRW.png",
+    "images": [
+      "https://i.imgur.com/pJjzJRW.png",
+      "https://via.placeholder.com/600x400.png?text=Despesas+1",
+      "https://via.placeholder.com/600x400.png?text=Despesas+2"
+    ],
     "tags": ["Google Sheets", "Apps Scripts", "JavaScript", "HTML", "CSS"],
     "repo": "#",
     "demo": "https://docs.google.com/spreadsheets/d/1kzDqb4No62976JRQyn4DwS7Dl-avvzeWQDHS5_3rbQY/edit?usp=sharing"
@@ -13,6 +18,11 @@
     "title": "Aplicativo Macro Suite",
     "description": "Aplicativo criado para automatizar tarefas, como: abrir aplicativos, clicar em botões, digitar texto, integrado com o Excel.",
     "image": "https://i.imgur.com/u1uy032.png",
+    "images": [
+      "https://i.imgur.com/u1uy032.png",
+      "/AppMacro.png",
+      "https://via.placeholder.com/600x400.png?text=Macro+2"
+    ],
     "tags": ["Python", "CustomTkinter", "OpenCV", "Pandas", "Excel"],
     "repo": "#",
     "demo": "#"
@@ -21,7 +31,12 @@
     "id": 3,
     "title": "Script de Lotes de Inconsistêcias",
     "description": "Script criado para visualizar inconsistências em um relatório Excel e auxiliar na resolução manual e automática dos mesmos.",
-    "image": "#",
+    "image": "https://via.placeholder.com/600x400.png?text=Projeto",
+    "images": [
+      "https://via.placeholder.com/600x400.png?text=Projeto",
+      "https://via.placeholder.com/600x400.png?text=Extra1",
+      "https://via.placeholder.com/600x400.png?text=Extra2"
+    ],
     "tags": ["Python", "Tkinter", "Pandas", "Excel"],
     "repo": "https://github.com/PedroHSauthier/Lotes-Project.git",
     "demo": "#"
