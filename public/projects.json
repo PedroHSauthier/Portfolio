@@ -16,5 +16,14 @@
     "tags": ["Python", "CustomTkinter", "OpenCV", "Pandas", "Excel"],
     "repo": "#",
     "demo": "#"
+  },
+  {
+    "id": 3,
+    "title": "Script de Lotes de Inconsistêcias",
+    "description": "Script criado para visualizar inconsistências em um relatório Excel e auxiliar na resolução manual e automática dos mesmos.",
+    "image": "#",
+    "tags": ["Python", "Tkinter", "Pandas", "Excel"],
+    "repo": "https://github.com/PedroHSauthier/Lotes-Project.git",
+    "demo": "#"
   }
 ]
