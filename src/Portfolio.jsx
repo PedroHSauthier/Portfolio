@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ImageModal from './ImageModal.jsx';
 import {
   Github,
   Mail,
@@ -32,6 +33,13 @@ const Portfolio = () => {
     selectedTag === 'Todos'
       ? projects
       : projects.filter((p) => p.tags.includes(selectedTag));
+
+  const [modalImages, setModalImages] = useState(null);
+  const openModal = (project) => {
+    const imgs = project.images && project.images.length > 0 ? project.images : [project.image];
+    setModalImages(imgs);
+  };
+  const closeModal = () => setModalImages(null);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white">
@@ -129,7 +137,8 @@ const Portfolio = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-48 object-cover"
+                    className="w-full h-48 object-cover cursor-pointer"
+                    onClick={() => openModal(project)}
                   />
                 </div>
                 <div className="p-6 flex flex-col flex-1">
@@ -188,6 +197,9 @@ const Portfolio = () => {
           </p>
         </div>
       </footer>
+      {modalImages && (
+        <ImageModal images={modalImages} onClose={closeModal} />
+      )}
     </div>
   );
 };
