@@ -36,7 +36,7 @@ const ImageModal = ({ images = [], onClose, initialIndex = 0 }) => {
         <div className="flex flex-col items-center">
           <img
             src={images[activeIndex]}
-            className={`w-[50vw] md:w-[40vw] max-h-[80vh] object-contain rounded-lg transition-opacity duration-300 ${
+            className={`w-[90vw] sm:w-[70vw] md:w-[60vw] lg:w-[50vw] max-h-[80vh] object-contain rounded-lg transition-opacity duration-300 ${
               fading ? 'opacity-0' : 'opacity-100'
             }`}
           />
