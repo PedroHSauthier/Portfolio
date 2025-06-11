@@ -30,7 +30,7 @@
     "description": "Script criado para visualizar inconsistências em um relatório Excel e auxiliar na resolução manual e automática dos mesmos.",
     "image": "https://via.placeholder.com/600x400.png?text=Projeto",
     "images": [
-      "https://imgur.com/5ouuNLw"
+      "https://i.imgur.com/Itx81CS.png"
     ],
     "tags": ["Python", "Tkinter", "Pandas", "Excel"],
     "repo": "https://github.com/PedroHSauthier/Lotes-Project.git",
