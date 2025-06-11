@@ -5,7 +5,10 @@
     "description": "Planilha criada com Google Sheets para controlar despesas, altamente personalizável, com diversas funções personalizadas criadas puramente para a Planilha.",
     "image": "https://i.imgur.com/pJjzJRW.png",
     "images": [
-      "https://i.imgur.com/pJjzJRW.png"
+      "https://i.imgur.com/pJjzJRW.png",
+      "https://i.imgur.com/OtYWBnA.png",
+      "https://i.imgur.com/meAQlxv.png",
+      "https://i.imgur.com/HZVgjLX.png"
     ],
     "tags": ["Google Sheets", "Apps Scripts", "JavaScript", "HTML", "CSS"],
     "repo": "#",
