@@ -10,10 +10,10 @@
   },
   {
     "id": 2,
-    "title": "Website Institucional",
-    "description": "Site responsivo desenvolvido em React e Tailwind para apresentar serviços de consultoria.",
-    "image": "/api/placeholder/400/250?2",
-    "tags": ["React", "Tailwind"],
+    "title": "Aplicativo Macro Suite",
+    "description": "Aplicativo criado para automatizar tarefas, como: abrir aplicativos, clicar em botões, digitar texto, etc.",
+    "image": "C:/Users/phsat/Documents/CODIGOS/Portfolio/public/AppMacro.png",
+    "tags": ["Python", "CustomTkinter", "OpenCV", "Pandas", "Excel"],
     "repo": "#",
     "demo": "#"
   }
