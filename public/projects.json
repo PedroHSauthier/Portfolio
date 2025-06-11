@@ -21,7 +21,9 @@
     "image": "https://i.imgur.com/u1uy032.png",
     "images": [
       "https://i.imgur.com/u1uy032.png",
-      "/AppMacro.png"
+      "https://i.imgur.com/uSmpbiN.png",
+      "https://i.imgur.com/kvDgUPc.png",
+      "https://i.imgur.com/vH5Ugw2.png"
     ],
     "tags": ["Python", "CustomTkinter", "OpenCV", "Pandas", "Excel"],
     "repo": "#",
@@ -31,9 +33,9 @@
     "id": 3,
     "title": "Script de Lotes de Inconsistêcias",
     "description": "Script criado para visualizar inconsistências em um relatório Excel e auxiliar na resolução manual e automática dos mesmos.",
-    "image": "https://i.imgur.com/Itx81CS.png",
+    "image": "https://i.imgur.com/4rG9voI.png",
     "images": [
-      "https://i.imgur.com/Itx81CS.png",
+      "https://i.imgur.com/4rG9voI.png",
       "https://i.imgur.com/wv6co0F.png"
     ],
     "tags": ["Python", "Tkinter", "Pandas", "Excel"],
