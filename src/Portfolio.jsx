@@ -44,10 +44,10 @@ const Portfolio = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white">
       {/* Header */}
-      <header className="px-6 py-8 border-b border-cyan-500/20">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
+      <header className="px-4 sm:px-6 py-8 border-b border-cyan-500/20">
+          <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0">
+            <div className="flex flex-col sm:flex-row items-center">
               {avatarUrl && (
                 <img
                   src={avatarUrl}
@@ -56,13 +56,13 @@ const Portfolio = () => {
                 />
               )}
               <div>
-                <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-green-400 bg-clip-text text-transparent">
+                <h1 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-green-400 bg-clip-text text-transparent text-center sm:text-left">
                   Pedro Sauthier
                 </h1>
-                <p className="text-xl text-gray-300 mt-2">Analista de Dados & Desenvolvedor</p>
+                <p className="text-lg sm:text-xl text-gray-300 mt-2 text-center sm:text-left">Analista de Dados & Desenvolvedor</p>
               </div>
             </div>
-            <div className="flex gap-4">
+            <div className="flex gap-4 mt-4 sm:mt-0">
               <a href="mailto:phsathier123@gmail.com" className="p-3 bg-cyan-500/20 hover:bg-cyan-500/30 rounded-lg transition-colors">
                 <Mail size={20} />
               </a>
@@ -78,18 +78,18 @@ const Portfolio = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="px-6 py-16">
+      <section className="px-4 sm:px-8 md:px-12 py-16">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-6xl font-bold mb-6">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
             Transformando <span className="text-cyan-400">Dados</span> em{' '}
             <span className="text-green-400">Insights</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Especialista em análise de dados, Python e Google Sheets. Combino habilidades técnicas com 
+          <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+            Especialista em análise de dados, Python e Google Sheets. Combino habilidades técnicas com
             forte comunicação, adquirida na experiência em suporte técnico na CERTA SISTEMA.
           </p>
           
-          <div className="grid md:grid-cols-3 gap-8 mt-16">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 mt-16">
             <div className="p-6 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-xl border border-cyan-500/20 transition-transform hover:-translate-y-1 hover:shadow-lg hover:from-cyan-500/20 hover:to-blue-500/20">
               <BarChart3 className="w-12 h-12 text-cyan-400 mb-4 mx-auto" />
               <h3 className="text-xl font-semibold mb-2">Análise de Dados</h3>
@@ -110,10 +110,10 @@ const Portfolio = () => {
       </section>
 
       {/* Projects Section */}
-        <section className="px-6 py-16 bg-black/30">
+        <section className="px-4 sm:px-8 md:px-12 py-16 bg-black/30">
           <div className="max-w-6xl mx-auto text-center">
             <h3 className="text-blue-600 text-xl font-semibold">Área tech</h3>
-            <h2 className="text-4xl font-bold mb-6">Projetos</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6">Projetos</h2>
             <div className="flex flex-wrap justify-center gap-2 mb-12">
               {allTags.map((tag) => (
                 <button
@@ -127,7 +127,7 @@ const Portfolio = () => {
             </div>
 
           {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
@@ -190,7 +190,7 @@ const Portfolio = () => {
       </section>
 
       {/* Footer */}
-      <footer className="px-6 py-8 border-t border-cyan-500/20">
+      <footer className="px-4 sm:px-6 py-8 border-t border-cyan-500/20">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-gray-400">
             © 2025 Pedro Sauthier. Transformando dados em insights através de comunicação eficaz e soluções técnicas.
