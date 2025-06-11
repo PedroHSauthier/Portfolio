@@ -5,9 +5,7 @@
     "description": "Planilha criada com Google Sheets para controlar despesas, altamente personalizável, com diversas funções personalizadas criadas puramente para a Planilha.",
     "image": "https://i.imgur.com/pJjzJRW.png",
     "images": [
-      "https://i.imgur.com/pJjzJRW.png",
-      "https://via.placeholder.com/600x400.png?text=Despesas+1",
-      "https://via.placeholder.com/600x400.png?text=Despesas+2"
+      "https://i.imgur.com/pJjzJRW.png"
     ],
     "tags": ["Google Sheets", "Apps Scripts", "JavaScript", "HTML", "CSS"],
     "repo": "#",
@@ -20,8 +18,7 @@
     "image": "https://i.imgur.com/u1uy032.png",
     "images": [
       "https://i.imgur.com/u1uy032.png",
-      "/AppMacro.png",
-      "https://via.placeholder.com/600x400.png?text=Macro+2"
+      "/AppMacro.png"
     ],
     "tags": ["Python", "CustomTkinter", "OpenCV", "Pandas", "Excel"],
     "repo": "#",
@@ -33,9 +30,7 @@
     "description": "Script criado para visualizar inconsistências em um relatório Excel e auxiliar na resolução manual e automática dos mesmos.",
     "image": "https://via.placeholder.com/600x400.png?text=Projeto",
     "images": [
-      "https://via.placeholder.com/600x400.png?text=Projeto",
-      "https://via.placeholder.com/600x400.png?text=Extra1",
-      "https://via.placeholder.com/600x400.png?text=Extra2"
+      "https://imgur.com/5ouuNLw"
     ],
     "tags": ["Python", "Tkinter", "Pandas", "Excel"],
     "repo": "https://github.com/PedroHSauthier/Lotes-Project.git",
