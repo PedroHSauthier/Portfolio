@@ -1,18 +1,18 @@
 [
   {
     "id": 1,
-    "title": "Análise de Vendas - Dashboard Python",
-    "description": "Dashboard interativo para análise de vendas usando Python, Pandas e Plotly. Inclui filtros dinâmicos e exportação para Excel.",
-    "image": "/api/placeholder/400/250",
-    "tags": ["Python", "Pandas", "Plotly", "Excel"],
+    "title": "Planilha de Controle de Despesas",
+    "description": "Planilha criada com Google Sheets para controlar despesas, altamente personalizável, com diversas funções personalizadas criadas puramente para a Planilha.",
+    "image": "https://i.imgur.com/pJjzJRW.png",
+    "tags": ["Google Sheets", "Apps Scripts", "JavaScript", "HTML", "CSS"],
     "repo": "#",
-    "demo": "#"
+    "demo": "https://docs.google.com/spreadsheets/d/1kzDqb4No62976JRQyn4DwS7Dl-avvzeWQDHS5_3rbQY/edit?usp=sharing"
   },
   {
     "id": 2,
     "title": "Aplicativo Macro Suite",
-    "description": "Aplicativo criado para automatizar tarefas, como: abrir aplicativos, clicar em botões, digitar texto, etc.",
-    "image": "https://i.imgur.com/UoTHaS8.png",
+    "description": "Aplicativo criado para automatizar tarefas, como: abrir aplicativos, clicar em botões, digitar texto, integrado com o Excel.",
+    "image": "https://i.imgur.com/u1uy032.png",
     "tags": ["Python", "CustomTkinter", "OpenCV", "Pandas", "Excel"],
     "repo": "#",
     "demo": "#"
